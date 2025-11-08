@@ -181,6 +181,58 @@ export async function getProjectImages(projectId: number) {
   return await db.select().from(projectImages).where(eq(projectImages.projectId, projectId));
 }
 
+/**
+ * Add credits to a user
+ */
+export async function addCreditsToUser(userId: string, credits: number) {
+  await database
+    .update(users)
+    .set({ 
+      credits: sql`${users.credits} + ${credits}` 
+    })
+    .where(eq(users.id, userId));
+}
+
+/**
+ * Create a payment record
+ */
+export async function createPayment(payment: {
+  userId: string;
+  amount: number;
+  currency: string;
+  status: string;
+  stripeSessionId: string;
+}) {
+  await database.insert(payments).values({
+    id: nanoid(),
+    userId: payment.userId,
+    amount: payment.amount,
+    currency: payment.currency,
+    status: payment.status,
+    stripeSessionId: payment.stripeSessionId,
+  });
+}
+
+/**
+ * Get user credits
+ */
+export async function getUserCredits(userId: string): Promise<number> {
+  const user = await database
+    .select({ credits: users.credits })
+    .from(users)
+    .where(eq(users.id, userId))
+    .limit(1);
+    
+  return user[0]?.credits || 0;
+}
+
+// Export db object with all functions
+export const db = {
+  addCreditsToUser,
+  createPayment,
+  getUserCredits,
+};
+
 // Import types for export
 export type { Project, InsertProject, BookCover, InsertBookCover, Payment, InsertPayment, ProjectImage, InsertProjectImage } from "../drizzle/schema";
 

@@ -52,6 +52,89 @@ async function startServer() {
     next();
   });
   
+  // Stripe webhook endpoint - MUST be before express.json()
+  app.post(
+    '/webhook/stripe',
+    express.raw({ type: 'application/json' }),
+    async (req, res) => {
+      const sig = req.headers['stripe-signature'];
+      
+      if (!sig) {
+        console.error('Missing stripe-signature header');
+        return res.status(400).send('Missing signature');
+      }
+
+      try {
+        const { verifyWebhookSignature, handlePaymentSuccess } = await import('../stripe');
+        const { ENV } = await import('./env');
+        const { db } = await import('../db');
+        
+        const event = verifyWebhookSignature(
+          req.body.toString(),
+          sig,
+          ENV.stripeWebhookSecret
+        );
+
+        if (!event) {
+          console.error('Invalid webhook signature');
+          return res.status(400).send('Invalid signature');
+        }
+
+        console.log('Webhook received:', event.type);
+
+        switch (event.type) {
+          case 'checkout.session.completed': {
+            const session = event.data.object as any;
+            console.log('Payment successful:', session.id);
+            
+            const paymentData = await handlePaymentSuccess(session);
+            
+            if (paymentData && paymentData.userId) {
+              try {
+                await db.addCreditsToUser(paymentData.userId.toString(), 1);
+                console.log(`Added 1 credit to user ${paymentData.userId}`);
+                
+                await db.createPayment({
+                  userId: paymentData.userId.toString(),
+                  amount: paymentData.amount || 0,
+                  currency: paymentData.currency || 'eur',
+                  status: 'completed',
+                  stripeSessionId: paymentData.sessionId,
+                });
+                
+                console.log('Payment recorded in database');
+              } catch (dbError) {
+                console.error('Database error:', dbError);
+              }
+            }
+            break;
+          }
+
+          case 'payment_intent.succeeded': {
+            const paymentIntent = event.data.object as any;
+            console.log('PaymentIntent succeeded:', paymentIntent.id);
+            break;
+          }
+
+          case 'payment_intent.payment_failed': {
+            const paymentIntent = event.data.object as any;
+            console.error('Payment failed:', paymentIntent.id);
+            break;
+          }
+
+          default:
+            console.log('Unhandled event type:', event.type);
+        }
+
+        res.json({ received: true });
+        
+      } catch (error) {
+        console.error('Webhook error:', error);
+        res.status(400).send(`Webhook Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      }
+    }
+  );
+  
   // Configure body parser with larger size limit for file uploads
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
