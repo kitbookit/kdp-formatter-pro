@@ -1,0 +1,60 @@
+# ============================================
+# VARIABILI ENVIRONMENT PER VERCEL
+# Copia e incolla queste nel pannello Vercel
+# Settings → Environment Variables
+# ============================================
+
+NODE_ENV=production
+
+PORT=5000
+
+VITE_APP_ID=kdp_formatter_pro_2025
+
+VITE_APP_TITLE=KDP Formatter Pro
+
+VITE_APP_LOGO=https://kdpformatter.store/logo.png
+
+DOMAIN=kdpformatter.store
+
+VITE_API_URL=https://kdpformatter.store
+
+DATABASE_URL=file:./dev.db
+
+JWT_SECRET=2b2b6dea3f07a51f3c4d901b67c37e1203a7aa973662e853bf7c1dbd1974f41eb9d5d65945543f3076da2c098c85ec924f6310a648c4a4a044a50937e03e1b43
+
+OAUTH_SERVER_URL=https://vidabiz.butterfly-effect.dev
+
+VITE_OAUTH_PORTAL_URL=https://vida.butterfly-effect.dev
+
+STRIPE_SECRET_KEY=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
+
+STRIPE_PUBLISHABLE_KEY=pk_live_51QhwSkJtBJsXNnYUjmOEDELer7DIeHyP8owuivtaBKtfmOKOhanT1qtbARn0S4PfZx5XrYRsZe7ixGJaABepYxx500arYlM03m
+
+STRIPE_WEBHOOK_SECRET=whsec_IRgi4gcjT6qHMYvr9pXmMMF4pr538jCR
+
+# ============================================
+# ISTRUZIONI:
+# ============================================
+# 
+# 1. Vai su Vercel Dashboard
+# 2. Seleziona progetto kdp-formatter-pro
+# 3. Settings → Environment Variables
+# 4. Per ogni variabile sopra:
+#    - Clicca "Add New"
+#    - Name: (nome variabile, es. NODE_ENV)
+#    - Value: (valore variabile)
+#    - Environment: Seleziona Production, Preview, Development
+#    - Clicca "Save"
+# 
+# 5. Dopo aver aggiunto tutte, redeploy:
+#    - Deployments → Latest → ... → Redeploy
+# 
+# ============================================
+# IMPORTANTE:
+# ============================================
+# 
+# ⚠️  Queste sono chiavi LIVE di Stripe!
+# ⚠️  I pagamenti saranno REALI!
+# ⚠️  Non condividere queste chiavi con nessuno!
+# 
+# ============================================

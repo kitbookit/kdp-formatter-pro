@@ -1,0 +1,29 @@
+{"time":"2025-11-07T09:16:38.062152554-05:00","level":"INFO","msg":"Sentry initialized","dsn":"https://962d173a894d***","environment":"PROD","release":"6.1.13","sandbox_id":"unknown"}
+{"time":"2025-11-07T09:16:38.062380664-05:00","level":"INFO","msg":"Sentry initialized successfully"}
+{"time":"2025-11-07T09:16:38.062405104-05:00","level":"INFO","msg":"MCP CLI initialized"}
+{"time":"2025-11-07T09:16:38.081012384-05:00","level":"INFO","msg":"Sentry initialized","dsn":"https://962d173a894d***","environment":"PROD","release":"6.1.13","sandbox_id":"unknown"}
+{"time":"2025-11-07T09:16:38.081078056-05:00","level":"INFO","msg":"Sentry initialized successfully"}
+{"time":"2025-11-07T09:16:38.081084866-05:00","level":"INFO","msg":"MCP CLI initialized"}
+{"time":"2025-11-07T09:16:39.295123803-05:00","level":"INFO","msg":"Sentry initialized","dsn":"https://962d173a894d***","environment":"PROD","release":"6.1.13","sandbox_id":"unknown"}
+{"time":"2025-11-07T09:16:39.295183332-05:00","level":"INFO","msg":"Sentry initialized successfully"}
+{"time":"2025-11-07T09:16:39.295191557-05:00","level":"INFO","msg":"MCP CLI initialized"}
+{"time":"2025-11-07T09:16:42.126387348-05:00","level":"INFO","msg":"Sentry initialized","dsn":"https://962d173a894d***","environment":"PROD","release":"6.1.13","sandbox_id":"unknown"}
+{"time":"2025-11-07T09:16:42.126450475-05:00","level":"INFO","msg":"Sentry initialized successfully"}
+{"time":"2025-11-07T09:16:42.126457746-05:00","level":"INFO","msg":"MCP CLI initialized"}
+{"time":"2025-11-07T09:16:45.151050951-05:00","level":"INFO","msg":"Sentry initialized","dsn":"https://962d173a894d***","environment":"PROD","release":"6.1.13","sandbox_id":"unknown"}
+{"time":"2025-11-07T09:16:45.151129677-05:00","level":"INFO","msg":"Sentry initialized successfully"}
+{"time":"2025-11-07T09:16:45.151138177-05:00","level":"INFO","msg":"MCP CLI initialized"}
+{"time":"2025-11-07T09:16:49.191184027-05:00","level":"INFO","msg":"Sentry initialized","dsn":"https://962d173a894d***","environment":"PROD","release":"6.1.13","sandbox_id":"unknown"}
+{"time":"2025-11-07T09:16:49.191249529-05:00","level":"INFO","msg":"Sentry initialized successfully"}
+{"time":"2025-11-07T09:16:49.191258607-05:00","level":"INFO","msg":"MCP CLI initialized"}
+{"time":"2025-11-07T09:16:54.217613049-05:00","level":"INFO","msg":"Sentry initialized","dsn":"https://962d173a894d***","environment":"PROD","release":"6.1.13","sandbox_id":"unknown"}
+{"time":"2025-11-07T09:16:54.217685085-05:00","level":"INFO","msg":"Sentry initialized successfully"}
+{"time":"2025-11-07T09:16:54.217695001-05:00","level":"INFO","msg":"MCP CLI initialized"}
+{"time":"2025-11-08T08:02:44.646933533-05:00","level":"INFO","msg":"Sentry initialized","dsn":"https://962d173a894d***","environment":"PROD","release":"6.1.13","sandbox_id":"iblzrr0f2f8hxsuyrei0b"}
+{"time":"2025-11-08T08:02:44.646995856-05:00","level":"INFO","msg":"Sentry initialized successfully"}
+{"time":"2025-11-08T08:02:44.647011697-05:00","level":"INFO","msg":"MCP CLI initialized"}
+{"time":"2025-11-08T08:02:52.212846257-05:00","level":"INFO","msg":"Sentry initialized","dsn":"https://962d173a894d***","environment":"PROD","release":"6.1.13","sandbox_id":"iblzrr0f2f8hxsuyrei0b"}
+{"time":"2025-11-08T08:02:52.212903875-05:00","level":"INFO","msg":"Sentry initialized successfully"}
+{"time":"2025-11-08T08:02:52.212911432-05:00","level":"INFO","msg":"MCP CLI initialized"}
+{"time":"2025-11-08T08:02:52.218485632-05:00","level":"INFO","msg":"Starting MCP RPC server","addr":"localhost:8350"}
+{"time":"2025-11-08T08:02:52.315938185-05:00","level":"INFO","msg":"[Server] MCP RPC server started","addr":"localhost:8350"}
