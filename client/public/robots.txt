@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Allow: /kdp-formatter
+Allow: /cover-designer
+
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*.xml$
+
+Sitemap: https://kdpformatterpro.manus.space/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
+
+# Request rate
+Request-rate: 1/10s
+
